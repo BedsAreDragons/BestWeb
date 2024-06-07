@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>My Stylish WebX Site</title>
+    <link href="https://example.com/icon.ico">
+    <meta name="theme-color" content="#007bff">
+    <meta name="description" content="A stylish WebX Napture SPA">
+    <link href="styles.css">
+    <script src="script.lua" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>My WebX Site</h1>
+      <button class="nav-btn" data-target="home">Home</button>
+      <button class="nav-btn" data-target="search">Search</button>
+    </div>
+    <div class="page active" id="home">
+      <div class="container">
+        <h2>Welcome to the Home Page</h2>
+        <p>This is the home page of our stylish single-page application using WebX Napture.</p>
+        <button class="nav-btn" data-target="search">Go to Search</button>
+      </div>
+    </div>
+    <div class="page" id="search">
+      <div class="container">
+        <h2>Search Page</h2>
+        <input type="text" id="searchInput" placeholder="Type to search...">
+        <button class="search-btn">Search</button>
+        <div id="results"></div>
+        <button class="nav-btn" data-target="home">Go to Home</button>
+      </div>
+    </div>
+  </body>
+</html>
