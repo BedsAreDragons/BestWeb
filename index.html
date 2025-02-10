@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <script>
+    function checkEncryptTextAvailability() {
+      if (typeof encryptText !== 'undefined') {
+        console.log("encryptText function is loaded successfully.");
+      } else {
+        console.log("encryptText function is not loaded.");
+      }
+    }
+  </script>
+  <script src="https://cdn.githubraw.com/BedsAreDragons/TestGAM/refs/heads/main/encrypt.js" onload="checkEncryptTextAvailability()"></script>
+</head>
+<body>
+  <h2>Login Page</h2>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <input type="submit" value="Login">
+  </form>
+  <p id="result"></p>
+  
+  <script>
+    // Provided credentials (unencrypted)
+    const validUsername = '#ÕkÌÃ&,}';
+    const validPassword = '/khÏ5,ö}ç·'
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Ensure the encryptText function is available
+      if (typeof encryptText !== 'undefined') {
+        const encryptedUsername = encryptText(username);
+        const encryptedPassword = encryptText(password);
+
+        if (encryptedUsername === validUsername && encryptedPassword === validPassword) {
+          document.getElementById('result').innerText = 'Well done, you did it. You decrypted it.';
+        } else {
+          document.getElementById('result').innerText = 'Incorrect Password or username.';
+        }
+      } else {
+        document.getElementById('result').innerText = 'Encryption function not available.';
+      }
+    });
+  </script>
+</body>
+</html>
